@@ -23,11 +23,18 @@ public class TransferAficiones {
 		this.precio = precio;
 	}
 	
-	
+	public TransferAficiones( String tema, String apodo, String nombre, int puntuacion, double precio) {
+		
+		this.tema = tema;
+		this.apodo = apodo;
+		this.nombre = nombre;
+		this.puntuacion = puntuacion;
+		this.precio = precio;
+	}
 
 	public static TransferAficiones EntityToTransfer(Aficiones aficiones) {
 		return new TransferAficiones(
-				aficiones.getId(),
+				//aficiones.getId(),
 				aficiones.getTema(),
 				aficiones.getApodo(),
 				aficiones.getNombre(),

@@ -3,6 +3,7 @@ package aficion.SA;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -31,5 +32,10 @@ public class SaAficiones {
 	
 	public void delete(String id) {
 		repository.deleteById(id);
+	}
+	
+	public List<Aficiones> buscarPorId(String id) {  
+	
+		return repository.findById(id);
 	}
 }

@@ -26,6 +26,16 @@ public class Aficiones {
 		this.precio = precio;
 		
 	}
+	
+	/*public Aficiones( String tema, String apodo, String nombre, int puntuacion, double precio){
+		
+		this.tema = tema;
+		this.apodo = apodo;
+		this.nombre = nombre;
+		this.puntuacion = puntuacion;
+		this.precio = precio;
+		
+	}*/
 	public Aficiones(Aficiones aficiones) {
 		this.id  = aficiones.id;
 		this.tema = aficiones.tema;
@@ -36,7 +46,7 @@ public class Aficiones {
 	}
 	
 	
-	public static Aficiones TransferToEntity(TransferAficiones transferAficiones, int idAficion) {
+	public static Aficiones TransferToEntity(TransferAficiones transferAficiones, String idAficion) {
 			Aficiones aficiones = new Aficiones(
 					transferAficiones.getId(),
 					transferAficiones.getTema(),
@@ -48,6 +58,18 @@ public class Aficiones {
 					return aficiones;
 	}
 	
+	
+	/*public static Aficiones TransferToEntity(TransferAficiones transferAficiones) {
+		return new Aficiones(
+				
+				transferAficiones.getTema(),
+				transferAficiones.getApodo(),
+				transferAficiones.getNombre(),
+				transferAficiones.getPuntuacion(),
+				transferAficiones.getPrecio()
+				);
+				
+}*/
 	
 	public String getId() {
 		return id;

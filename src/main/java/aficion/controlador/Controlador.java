@@ -1,13 +1,13 @@
 package aficion.controlador;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.stereotype.Controller;
@@ -17,17 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
 
 import aficion.SA.SaAficiones;
 import aficion.entidad.Aficiones;
-
-
-
-
-
+import aficion.transfer.TransferAficiones;
 
 
 
@@ -100,11 +93,12 @@ private SaAficiones saAficion ;
 	}
 
 	
-	@RequestMapping(value="/modificar", method=RequestMethod.GET)
-	public ModelAndView mostrarModificar(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
-		
+	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"id"})
+	public ModelAndView mostrarModificar(@RequestParam("id") String id) {
+		Aficiones aficiones = null;
+		aficiones = (Aficiones) saAficion.buscarPorId(id);
 		ModelAndView modelAndView = new ModelAndView();
-		
+		TransferAficiones transferAficiones = TransferAficiones.EntityToTransfer(aficiones);
 		modelAndView.addObject("transferAficiones", transferAficiones);
 		modelAndView.setViewName("modificar");
 		return modelAndView;
