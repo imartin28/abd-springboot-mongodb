@@ -83,13 +83,13 @@ private SaAficiones saAficion ;
 	
 	@RequestMapping(value="/buscarTema",method=RequestMethod.POST)
 	public ModelAndView buscarTema(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
-		ModelAndView modelAndView = null;
-		//List<Aficiones> listaAficiones = saAficion.buscarTemaAficion(transferAficiones.getTema());	
+		ModelAndView modelAndView = new ModelAndView();
+		List<Aficiones> listaAficiones = saAficion.buscarTemaAficion(transferAficiones.getTema());	
 		
-		
+		modelAndView.addObject("listaAficionesTema", listaAficiones);
 
-		//modelAndView = new ModelAndView("redirect:/mostrarResultadosTema");
-		modelAndView = new ModelAndView("redirect:/insertar");
+		modelAndView.setViewName("mostrarBusqueda");
+		//modelAndView = new ModelAndView("redirect:/insertar");
 		
 		return modelAndView;
 		
