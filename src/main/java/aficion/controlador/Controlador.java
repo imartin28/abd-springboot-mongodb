@@ -96,7 +96,7 @@ private SaAficiones saAficion ;
 	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"nombre"})
 	public ModelAndView mostrarModificar(@RequestParam("nombre") String id) {
 			
-		Aficiones aficiones = aficiones.buscarPorId(id);
+		List<Aficiones>listaAficiones = saAficion.buscarPorId(id);
 		//Aficiones aficiones = saAficion.buscarPorApodo(apodo);
 		//aficiones = saAficion.buscarPorNombre(nombre);
 		ModelAndView modelAndView = new ModelAndView();
