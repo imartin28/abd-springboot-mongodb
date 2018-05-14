@@ -37,10 +37,10 @@ public class SaAficiones {
 	/*public  Aficiones buscarPorApodo(String apodo){
 		return (Aficiones) repository.findByApodo(apodo);
 	}*/
-	public List<Aficiones> buscarPorId(String id) {
+	public Aficiones buscarPorId(String id) {
 		
 		// TODO Auto-generated method stub
-		return repository.findByid(id);
+		return repository.findByid(id).get(0);
 	}
 
 
