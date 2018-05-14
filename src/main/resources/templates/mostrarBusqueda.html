@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<title>Aficiones</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	
+	<!-- Bootstrap CSS -->
+    	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="row mt-5">
+  	
+		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
+	
+						<tbody>
+		 		          	  	<tr class="align-middle" th:each="aficiones : ${listaAficionesTema}">
+			  						<td class="text-center" th:text="${aficiones.tema}"></td>
+			  						<td class="text-center" th:text="${aficiones.apodo}"></td>
+			  						<td class="text-center" th:text="${aficiones.nombre}"></td>
+									<td class="text-center" th:text="${aficiones.puntuacion}"></td>
+									<td class="text-center" th:text="${aficiones.precio}"></td>
+									
+	      						</tr>
+	 		             </tbody>	
+		</div>
+	</div>
+
+</body>
+</html>

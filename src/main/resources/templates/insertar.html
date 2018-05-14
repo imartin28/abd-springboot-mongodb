@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<title>Aficiones</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	
+	<!-- Bootstrap CSS -->
+    	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="row mt-5">
+  	
+		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
+	
+		<form method="POST" th:action="@{/insertar}" th:object=${transferAficiones} >
+			<h1 class="titulo">INSERTAR AFICION</h1>
+			 <hr class="mb-4 separador-gris"> 
+			 <div class="form-group row">
+			    <label for="tema" class="col-sm-2 col-form-label">Tema:</label>
+			    <div class="col-sm-10">
+			      <input type="text" th:field="*{tema}" th:value=${transferAficiones.tema} class="form-control" id="tema" placeholder="Tema"></input>
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="apodo" class="col-sm-2 col-form-label">Apodo:</label>
+			    <div class="col-sm-10">
+			      <input type="text"  th:field="*{apodo}" th:value=${transferAficiones.apodo} class="form-control" id="apodo" placeholder="Apodo"></input>
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
+			    <div class="col-sm-10">
+			      <input type="text"  th:field="*{nombre}" th:value=${transferAficiones.nombre} class="form-control" id="nombre" placeholder="Nombre"></input>
+			    </div>
+			</div>
+			
+			<div class="form-group row">
+			    <label for="puntuacion" class="col-sm-2 col-form-label">Puntuacion:</label>
+			    <div class="col-sm-10">
+			      <input type="text"  th:field="*{puntuacion}" th:value=${transferAficiones.puntuacion} class="form-control" id="puntuacion" placeholder="Puntuacion"></input>
+			    </div>
+			</div>	
+				
+			<div class="form-group row">
+			    <label for="precio" class="col-sm-2 col-form-label">Precio:</label>
+			    <div class="col-sm-10">
+			      <input type="text"  th:field="*{precio}" th:value=${transferAficiones.precio} class="form-control" id="precio" placeholder="Precio"></input>
+			    </div>
+			</div>
+				
+				<div>
+				<button type="submit" class="btn boton-rosa">Insertar aficion</button>
+				<a th:href="'/index'">
+				 <input type="button" class="btn btn-grey" value="Volver atras"></input>							              
+			 </a>
+			</div>
+			
+		
+			<!-- <div class="margen">
+				Tema
+				<input th:field="*{tema}" id="tema" type="text" required="true" >
+			</div>
+			<div class="margen">
+				Nombre
+				<input th:field="*{nombre}" id ="nombre" type="text" required="true" >
+			</div>
+			
+			<div>
+				<button class="miBoton sombra" type="submit">ENVIAR</button>
+			</div>-->
+		</form>
+		</div>
+	</div>
+
+</body>
+</html>
