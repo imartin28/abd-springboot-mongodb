@@ -2,10 +2,8 @@ package prototipo.controlador;
 
 
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mongodb.BasicDBObject;
+
 
 public class Aficiones {
 	

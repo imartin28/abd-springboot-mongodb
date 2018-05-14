@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<title>Aficiones</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	
+	<!-- Bootstrap CSS -->
+    	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<div class="row mt-5">
+  	
+		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
+		<form method="POST" th:action="@{/buscarTema}" th:object=${transferAficiones} >
+			<h1 class="titulo">BUSCAR AFICION</h1>
+			 <hr class="mb-4 separador-gris"> 
+			 <div class="form-group row">
+			    <label for="texto" class="col-sm-2 col-form-label">Tema:</label>
+			    <div class="col-sm-10">
+			   <!-- <input class="form-control mr-sm-2" type="search" name="texto" aria-label="Buscar"> -->
+			    <input type="text" th:field="*{tema}" th:value=${transferAficiones.tema} class="form-control" id="tema" placeholder="Tema"></input>
+			    </div>
+			</div>
+			</form>
+			
+			<div>
+				<button type="submit" class="btn boton-rosa">Buscar aficion</button>
+			  
+			  <a th:href="'/index'">
+				 <input type="button" class="btn btn-grey" value="Volver atras"></input>							              
+			 </a>
+			</div>
+		</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+	<title>calculadora</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<title>Aficiones</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	
+	<!-- Bootstrap CSS -->
+    	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="row mt-5">
+  	
+		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
+			<div>
+		      <a th:href="'/insertar'">
+				 <input type="button" class="btn-lg  btn boton-rosa " value="Añadir Aficion"></input>							              
+			 </a>
+			</div>
+			<div class= "mt-3">
+			 <a th:href="'/buscarTema'">
+				 <input type="button" class="btn-lg  btn boton-rosa " value="Buscar Aficion"></input>							              
+			 </a>
+			 </div>
+			<div class= "mt-3">
+			 <a th:href="'/insertar'">
+				 <input type="button" class="btn-lg  btn boton-rosa " value="Modificar Aficion"></input>							              
+			 </a>
+			 </div>
+			 <div class ="mt-3">
+			  <a th:href="'/insertar'">
+				 <input type="button" class="btn-lg  btn boton-rosa" value="Eliminar Aficion"></input>							              
+			 </a>
+	</div>
+	
+	
+	
+		
+		</div>
+	</div>
+
+</body>
+</html>
