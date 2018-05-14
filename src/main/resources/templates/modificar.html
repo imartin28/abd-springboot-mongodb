@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<title>Aficiones</title>
+	
+	<!-- Required meta tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	
+	<!-- Bootstrap CSS -->
+    	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Style CSS -->
+	<link href="css/style.css" rel="stylesheet" />
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="row mt-5">  	
+  		<div class="col-8 color-perfil mx-auto border border-dark rounded container-perfil">  			
+	        	
+
+  		   <form  th:action="@{/modificar}" th:object="${transferAficiones}" method="POST">  		          
+  		          
+			  	  <div class="form-group row">
+				  	<label class="col-form-label col-3" id="tema"  for="Nombre">Tema:</label>			  		  		
+			  		<div>
+			  		  <input type="text" th:field="*{tema}" class="form-control " id =tema th:value="${transferAficiones.tema}"></input>
+			  		 
+			  		  <!-- <label  th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="validation-message errorParticular"></label>-->
+			  		</div>			  			
+			  	  </div>
+			  		
+			  	  <div class="form-group row">
+			  		<label class="col-form-label col-3 " for="apodo">Apodo:</label>		
+			  		<div>			  		  		
+			  		  <input type="text" th:field="*{apodo}" class="form-control " th:value="${transferAficiones.apodo}"></input>
+			  		  <!-- <label th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" class="validation-message errorParticular"></label>-->
+			  		</div>				  			
+			  	  </div>
+			  	
+			  	  <div class="form-group row">
+			  		<label class="col-form-label col-3 " for="Nombre">Nombre:</label>		
+			  		<div>			  		  		
+			  		  <input type="text" th:field="*{nombre}" class="form-control " th:value="${transferAficiones.nombre}"></input>
+			  		  <!-- <label th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" class="validation-message errorParticular"></label>-->
+			  		</div>				  			
+			  	  </div>
+			  	  
+  		         <div class="form-group row">
+			  		<label class="col-form-label col-3 " for="puntuacion">Puntuación:</label>		
+			  		<div>			  		  		
+			  		  <input type="text" th:field="*{puntuacion}" class="form-control " th:value="${transferAficiones.puntuacion}"></input>
+			  		  <!-- <label th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" class="validation-message errorParticular"></label>-->
+			  		</div>				  			
+			  	  </div>
+			  	  
+  		          <div class="form-group row">
+			  		<label class="col-form-label col-3 " for="precio">Precio:</label>		
+			  		<div>			  		  		
+			  		  <input type="text" th:field="*{precio}" class="form-control " th:value="${transferAficiones.precio}"></input>
+			  		  <!-- <label th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" class="validation-message errorParticular"></label>-->
+			  		</div>				  			
+			  	 
+  		   </div><!-- final row -->
+  		   
+  		  
+  		 
+  		    <div  class=" text-center  margen-botones">
+				<button type="submit" class=" btn-lg btn botonAzul" data-toggle="modal" data-target="#modalModificarParticular">Guardar</button>
+										 <a th:href="'/particular/perfil'" th:if="${particular != null}"> 
+									              <input type="button" class="btn-lg btn btn-grey" value="Cancelar"></input>
+									              
+								    </a>
+			 </div>	
+		
+		</form>
+	</div>	
+  </div>	 
+</body>
+</html>

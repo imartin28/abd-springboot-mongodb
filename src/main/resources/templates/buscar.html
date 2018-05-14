@@ -22,7 +22,7 @@
   	
 		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
 		<form method="POST" th:action="@{/buscarTema}" th:object=${transferAficiones} >
-			<h1 class="titulo">BUSCAR AFICION</h1>
+			<h1 class="titulo">BUSCAR AFICIÓN</h1>
 			 <hr class="mb-4 separador-gris"> 
 			 <div class="form-group row">
 			    <label for="texto" class="col-sm-2 col-form-label">Tema:</label>
@@ -31,15 +31,16 @@
 			    <input type="text" th:field="*{tema}" th:value=${transferAficiones.tema} class="form-control" id="tema" placeholder="Tema"></input>
 			    </div>
 			</div>
-			</form>
+			
 			
 			<div>
-				<button type="submit" class="btn boton-rosa">Buscar aficion</button>
+				<button type="submit" class="btn boton-rosa">Buscar afición</button>
 			  
 			  <a th:href="'/index'">
-				 <input type="button" class="btn btn-grey" value="Volver atras"></input>							              
+				 <input type="button" class="btn btn-grey" value="Volver al menú principal"></input>							              
 			 </a>
 			</div>
+			</form>
 		</div>
 </div>
 </body>

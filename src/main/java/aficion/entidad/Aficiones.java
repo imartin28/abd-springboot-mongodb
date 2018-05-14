@@ -1,14 +1,11 @@
-package prototipo.controlador;
+package aficion.entidad;
 
-
-
-
-
+import aficion.transfer.TransferAficiones;
 
 public class Aficiones {
 	
 
-	//private String id;
+	private String id;
 	private String tema;
 	private String apodo;
 	private String nombre;
@@ -20,8 +17,8 @@ public class Aficiones {
 	public Aficiones(){}
 	
 	
-	public Aficiones(String tema, String apodo, String nombre, int puntuacion, double precio){
-	
+	public Aficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio){
+		this.id = id;
 		this.tema = tema;
 		this.apodo = apodo;
 		this.nombre = nombre;
@@ -29,41 +26,37 @@ public class Aficiones {
 		this.precio = precio;
 		
 	}
-	
-	
-	/*public Aficiones(BasicDBObject dBObjectAficiones) {
-		this.tema = dBObjectAficiones.getString("tema");
-		this.apodo = dBObjectAficiones.getString("apodo");
-		this.nombre = dBObjectAficiones.getString("nombre");
-		this.puntuacion = dBObjectAficiones.getInt("puntuacion");
-		this.precio = dBObjectAficiones.getDouble("precio");
-	
+	public Aficiones(Aficiones aficiones) {
+		this.id  = aficiones.id;
+		this.tema = aficiones.tema;
+		this.apodo = aficiones.apodo;
+		this.nombre = aficiones.nombre;
+		this.puntuacion = aficiones.puntuacion;
+		this.precio = aficiones.precio;
 	}
 	
-	public BasicDBObject toDBObjectAficiones() {
-
-	   
-	    BasicDBObject dBObjectAficiones = new BasicDBObject();
-	    
-	    dBObjectAficiones.append("tema", this.getTema());
-	    dBObjectAficiones.append("apodo",this.getApodo());
-	    dBObjectAficiones.append("nombre",this.getNombre());
-	    dBObjectAficiones.append("puntuacion",this.getPuntuacion());
-	    dBObjectAficiones.append("precio",this.getPrecio());
-	    
-
-	    return dBObjectAficiones;
-	}*/
+	
+	public static Aficiones TransferToEntity(TransferAficiones transferAficiones, int idAficion) {
+			Aficiones aficiones = new Aficiones(
+					transferAficiones.getId(),
+					transferAficiones.getTema(),
+					transferAficiones.getApodo(),
+					transferAficiones.getNombre(),
+					transferAficiones.getPuntuacion(),
+					transferAficiones.getPrecio()
+					);
+					return aficiones;
+	}
 	
 	
-	/*public String getId() {
+	public String getId() {
 		return id;
 	}
 
 
 	public void setId(String id) {
 		this.id = id;
-	}*/
+	}
 
 
 	public String getTema() {

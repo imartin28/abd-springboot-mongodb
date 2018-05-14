@@ -1,4 +1,4 @@
-package prototipo.controlador;
+package aficion.controlador;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+
+import aficion.SA.SaAficiones;
+import aficion.entidad.Aficiones;
 
 
 
@@ -97,13 +100,26 @@ private SaAficiones saAficion ;
 	}
 
 	
-	/*@RequestMapping(value ="/mostrarResultadosTema", method = RequestMethod.GET)	
-	public ModelAndView mostrarResultadosTema(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+	@RequestMapping(value="/modificar", method=RequestMethod.GET)
+	public ModelAndView mostrarModificar(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+		
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("listaAficionesTema", listaAficiones);
-		modelAndView.setViewName("mostrarBusqueda");
+		
+		modelAndView.addObject("transferAficiones", transferAficiones);
+		modelAndView.setViewName("modificar");
 		return modelAndView;
-	}*/
+	}
+	
+	
 
+	@RequestMapping(value="/eliminar",method=RequestMethod.POST)
+	public ModelAndView eliminar(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+		ModelAndView modelAndView = null;
+		saAficion.insertarAficion(transferAficiones);
+		modelAndView = new ModelAndView("redirect:/index");
+		return modelAndView;
+		
+		
+	}
 
 }

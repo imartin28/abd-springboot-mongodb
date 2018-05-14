@@ -22,17 +22,46 @@
 <div class="row mt-5">
   	
 		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
-	
+				<table class="table table-hover">
+		 		          	 <thead>
+		 		          	 	<tr>
+		 		          	 		
+		 		          	 		<th class="text-center">Tema</th>
+			  						<th class="text-center">Apodo</th>
+			  						<th class="text-center">Nombre</th>
+									<th class="text-center">Puntuación</th>
+									<th class="text-center">Precio</th>
+									<th class="text-center button"></th>
+									<th class="text-center button"></th>
+		 		          	 	</tr>
+		 		          	 </thead>
 						<tbody>
 		 		          	  	<tr class="align-middle" th:each="aficiones : ${listaAficionesTema}">
+		 		          	  		
 			  						<td class="text-center" th:text="${aficiones.tema}"></td>
 			  						<td class="text-center" th:text="${aficiones.apodo}"></td>
 			  						<td class="text-center" th:text="${aficiones.nombre}"></td>
 									<td class="text-center" th:text="${aficiones.puntuacion}"></td>
 									<td class="text-center" th:text="${aficiones.precio}"></td>
+									<td> 							
+										<a th:href="'/modificar?id=' +${aficiones.id}">
+				            				 <input type="button" class="btn boton-rosa " value="Modificar Afición"></input>							              
+				        				    </a>
+							        </td>
+									<td> 							
+										<a th:href="'/eliminar?id=' +${aficiones.id}">
+				            				 <input type="button" class="btn btn-danger " value="Eliminar Afición"></input>							              
+				        				    </a>
+							        </td>
 									
 	      						</tr>
-	 		             </tbody>	
+	 		             </tbody>
+	 		        </table>   
+	 		        <div>				
+						<a th:href="'/index'">
+						 <input type="button" class="btn btn-grey" value="Volver al menú principal"></input>							              
+					    </a>
+					</div>  	
 		</div>
 	</div>
 

@@ -1,4 +1,4 @@
-package prototipo.controlador;
+package aficion.SA;
 
 
 
@@ -8,6 +8,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import aficion.entidad.Aficiones;
+import aficion.repositorio.AficionesRepository;
 @Service
 public class SaAficiones {
 	@Autowired
@@ -26,4 +29,7 @@ public class SaAficiones {
 	}
 	
 	
+	public void delete(String id) {
+		repository.deleteById(id);
+	}
 }
