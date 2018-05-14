@@ -30,7 +30,7 @@ public class SaAficiones {
 	}
 	
 	
-	public void delete(String id) {
+	public void eliminar(String id) {
 		repository.deleteById(id);
 	}
 

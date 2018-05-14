@@ -108,11 +108,12 @@ private SaAficiones saAficion ;
 	
 	
 
-	@RequestMapping(value="/eliminar",method=RequestMethod.POST)
-	public ModelAndView eliminar(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
-		ModelAndView modelAndView = null;
-		saAficion.insertarAficion(transferAficiones);
-		modelAndView = new ModelAndView("redirect:/index");
+	@RequestMapping(value="/eliminar",method=RequestMethod.GET, params = {"id"})
+	public ModelAndView eliminar(@RequestParam("id") String id) {
+		ModelAndView modelAndView = new ModelAndView();
+		saAficion.eliminar(id);
+		modelAndView.setViewName("index");
+		//modelAndView = new ModelAndView("redirect:/index");
 		return modelAndView;
 		
 		
