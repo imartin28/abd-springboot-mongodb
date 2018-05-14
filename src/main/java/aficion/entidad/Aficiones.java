@@ -1,10 +1,12 @@
 package aficion.entidad;
 
+import org.springframework.data.annotation.Id;
+
 import aficion.transfer.TransferAficiones;
 
 public class Aficiones {
 	
-
+	@Id
 	private String id;
 	private String tema;
 	private String apodo;

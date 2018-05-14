@@ -33,9 +33,22 @@ public class SaAficiones {
 	public void delete(String id) {
 		repository.deleteById(id);
 	}
-	
-	public List<Aficiones> buscarPorId(String id) {  
-	
+
+	/*public  Aficiones buscarPorApodo(String apodo){
+		return (Aficiones) repository.findByApodo(apodo);
+	}*/
+	public Aficiones buscarPorId(String id) {
+		
+		// TODO Auto-generated method stub
 		return repository.findById(id);
 	}
+
+
+	
+
+	
+
+
+	
+	
 }

@@ -1,9 +1,13 @@
 package aficion.transfer;
 
+import java.util.List;
+
+import org.springframework.data.annotation.Id;
+
 import aficion.entidad.Aficiones;
 
 public class TransferAficiones {
-
+	@Id
 	private String id;
 	private String tema;
 	private String apodo;
@@ -92,4 +96,6 @@ public class TransferAficiones {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
+	
 }

@@ -93,10 +93,12 @@ private SaAficiones saAficion ;
 	}
 
 	
-	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"id"})
-	public ModelAndView mostrarModificar(@RequestParam("id") String id) {
-		Aficiones aficiones = null;
-		aficiones = (Aficiones) saAficion.buscarPorId(id);
+	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"nombre"})
+	public ModelAndView mostrarModificar(@RequestParam("nombre") String id) {
+			
+		Aficiones aficiones = aficiones.buscarPorId(id);
+		//Aficiones aficiones = saAficion.buscarPorApodo(apodo);
+		//aficiones = saAficion.buscarPorNombre(nombre);
 		ModelAndView modelAndView = new ModelAndView();
 		TransferAficiones transferAficiones = TransferAficiones.EntityToTransfer(aficiones);
 		modelAndView.addObject("transferAficiones", transferAficiones);
