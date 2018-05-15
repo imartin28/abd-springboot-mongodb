@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import aficion.SA.SaAficiones;
 import aficion.entidad.Aficiones;
 import aficion.transfer.TransferAficiones;
+
 
 
 
@@ -93,12 +95,12 @@ private SaAficiones saAficion ;
 	}
 
 	
-	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"nombre"})
-	public ModelAndView mostrarModificar(@RequestParam("nombre") String id) {
+	@RequestMapping(value="/modificar", method=RequestMethod.GET , params = {"id"})
+	public ModelAndView mostrarModificar(@RequestParam("id") String id) {
 			
-		Aficiones aficiones = saAficion.buscarPorId(id);
-		//Aficiones aficiones = saAficion.buscarPorApodo(apodo);
-		//aficiones = saAficion.buscarPorNombre(nombre);
+		
+		Aficiones aficiones = null;
+		aficiones = saAficion.getById(id);
 		ModelAndView modelAndView = new ModelAndView();
 		TransferAficiones transferAficiones = TransferAficiones.EntityToTransfer(aficiones);
 		modelAndView.addObject("transferAficiones", transferAficiones);
@@ -106,6 +108,13 @@ private SaAficiones saAficion ;
 		return modelAndView;
 	}
 	
+	@RequestMapping(value="/modificar", method = RequestMethod.POST)
+	public ModelAndView modificar(@ModelAttribute("transferAficiones") @Valid TransferAficiones transferAficiones){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("transferAficiones", transferAficiones);
+		modelAndView.setViewName("modificarOferta");
+		return modelAndView;
+	}
 	
 
 	@RequestMapping(value="/eliminar",method=RequestMethod.GET, params = {"id"})

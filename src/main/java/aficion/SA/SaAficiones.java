@@ -44,6 +44,13 @@ public class SaAficiones {
 	}
 
 
+	public Aficiones getById(String id) {
+		// TODO Auto-generated method stub
+		return repository.findById(id).orElse(null);
+   	
+	}
+
+
 	
 
 	

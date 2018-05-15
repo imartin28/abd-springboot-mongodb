@@ -38,7 +38,7 @@ public class TransferAficiones {
 
 	public static TransferAficiones EntityToTransfer(Aficiones aficiones) {
 		return new TransferAficiones(
-				//aficiones.getId(),
+				aficiones.getId(),
 				aficiones.getTema(),
 				aficiones.getApodo(),
 				aficiones.getNombre(),
