@@ -31,12 +31,12 @@ public class SaAficiones {
 	
 	
 	
-	/*public List<Aficiones> buscarTodosLosTemas(List<Aficiones> id){
+	public List<Aficiones> buscarTodosLosTemas(){
 		List<Aficiones> aficiones = new ArrayList<>();
         repository.findAll().forEach(aficiones::add);
 		return aficiones;
 		//return repository.findAll(tema);
-	}*/
+	}
 	
 	public void eliminar(String id) {
 		repository.deleteById(id);

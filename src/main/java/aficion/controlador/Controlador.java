@@ -137,18 +137,16 @@ private SaAficiones saAficion ;
 	}
 	
 	
-	/*@RequestMapping(value="/mostrarTodos", method=RequestMethod.GET)
-	public ModelAndView mostrarTodos(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+	@RequestMapping(value="/mostrarTodos", method=RequestMethod.GET)
+	public ModelAndView mostrarTodos() {
 		
 		ModelAndView modelAndView = new ModelAndView();
+		List<Aficiones> aficiones = saAficion.buscarTodosLosTemas();
+		modelAndView.addObject("listaAficionesTema", aficiones);
 		
-		
-		modelAndView.addObject("listaAficiones", saAficion.buscarTodosLosTemas(transferAficiones.getId()));
-		//modelAndView.addObject("listaAficiones", saAficion.buscarTodosLosTemas());
-		//modelAndView = new ModelAndView("redirect:/mostrarTodos");
 		modelAndView.setViewName("mostrarBusqueda");
 		return modelAndView;
-	}*/
+	}
 	
 	/*@RequestMapping(value="/mostrarTodos",method=RequestMethod.POST)
 	public ModelAndView mostrarTodasAficiones(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
