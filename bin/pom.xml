@@ -40,6 +40,12 @@
         <version>3.7.0</version>
         </dependency>
         
+        <dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-mongodb</artifactId>
+    <version>1.10.4.RELEASE</version>
+	</dependency>
+        
     </dependencies>
 
     <properties>
@@ -52,6 +58,8 @@
             <name>Spring Releases</name>
             <url>https://repo.spring.io/libs-release</url>
         </repository>
+        <mongo:repositories
+ 			 base-package="org.baeldung.repository" mongo-template-ref="mongoTemplate"/>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -60,6 +68,14 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
+    
+    <mongo:mongo id="mongo" host="localhost" /> 
+<mongo:db-factory id="mongoDbFactory" dbname="test" mongo-ref="mongo" />
+<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"> 
+    <constructor-arg ref="mongoDbFactory"/> 
+</bean>
+<bean class=
+  "org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
 
     <build>
         <plugins>

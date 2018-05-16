@@ -9,7 +9,12 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.stereotype.Service;
+
+import com.mongodb.MongoClient;
 
 import aficion.entidad.Aficiones;
 import aficion.repositorio.AficionesRepository;
@@ -55,10 +60,17 @@ public class SaAficiones {
 		return repository.findById(id).orElse(null);
    	
 	}
-
-	public Aficiones query() {
+	
+	public MongoDbFactory mongoDbFactory() throws Exception {
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+     
+        return new SimpleMongoDbFactory(mongoClient, "Aficiones");
+    }
+	
+	public void query() throws Exception {
 		Query query = new Query();
 		query.addCriteria(Criteria.where("precio").gt(10));
+		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
 		List<User> users = mongoTemplate.find(query, User.class);
 	}
 	
