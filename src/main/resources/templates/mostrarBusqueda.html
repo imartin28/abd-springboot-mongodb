@@ -21,11 +21,13 @@
 
 <div class="row mt-5">
   	
-		<div class="col-8  mx-auto  text-center rounded color-perfil border border-dark">
+		<div class="col-10  mx-auto  text-center rounded color-perfil ">
+		<h1 class="titulo">RESULTADOS BUSQUEDA</h1>
+			 <hr class="mb-4 separador-gris"> 
 				<table class="table table-hover">
 		 		          	 <thead>
 		 		          	 	<tr>
-		 		          	 		
+	 		          	 		    <th class ="text-center"> ID</th>
 		 		          	 		<th class="text-center">Tema</th>
 			  						<th class="text-center">Apodo</th>
 			  						<th class="text-center">Nombre</th>
@@ -37,6 +39,7 @@
 		 		          	 </thead>
 						<tbody>
 		 		          	  	<tr class="align-middle" th:each="aficiones : ${listaAficionesTema}">
+		 		          	  	
 		 		          	  		<td class="text-center" th:text="${aficiones.id}"></td>
 			  						<td class="text-center" th:text="${aficiones.tema}"></td>
 			  						<td class="text-center" th:text="${aficiones.apodo}"></td>
@@ -55,8 +58,12 @@
 							        </td>					        
 								</tr>
 	 		             </tbody>
-	 		        </table>   
-	 		        <div>				
+	 		        </table>  
+	 		         <div>				
+						<a th:href="'/buscarTema'">
+						 <input type="button" class="btn btn-grey" value="Volver al buscador"></input>							              
+					    </a>
+									
 						<a th:href="'/index'">
 						 <input type="button" class="btn btn-grey" value="Volver al menú principal"></input>							              
 					    </a>

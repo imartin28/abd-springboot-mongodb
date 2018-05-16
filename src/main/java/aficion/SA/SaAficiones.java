@@ -2,6 +2,7 @@ package aficion.SA;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import aficion.entidad.Aficiones;
 import aficion.repositorio.AficionesRepository;
+
 @Service
 public class SaAficiones {
 	@Autowired
@@ -28,6 +30,14 @@ public class SaAficiones {
 	}
 	
 	
+	
+	/*public List<Aficiones> buscarTodosLosTemas(List<Aficiones> id){
+		List<Aficiones> aficiones = new ArrayList<>();
+        repository.findAll().forEach(aficiones::add);
+		return aficiones;
+		//return repository.findAll(tema);
+	}*/
+	
 	public void eliminar(String id) {
 		repository.deleteById(id);
 	}
@@ -44,6 +54,9 @@ public class SaAficiones {
 		return repository.findById(id).orElse(null);
    	
 	}
+
+
+	
 
 
 	

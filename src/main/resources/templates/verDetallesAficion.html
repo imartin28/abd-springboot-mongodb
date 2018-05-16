@@ -20,54 +20,51 @@
 <body>
 
 <div class="row mt-5">  	
-  		<div class="col-8 color-perfil mx-auto border border-dark rounded container-perfil" >  			
+  		<div class="col-8 color-perfil mx-auto border border-dark rounded container-perfil">  			
 	        	
 
-  		   
+  		   <form method="POST" th:action="@{/verCambio}" th:object=${transferAficiones} >
 			<h1 class="titulo">VER AFICION</h1>
 			 <hr class="mb-4 separador-gris"> 
-			 
 			 <div class="form-group row">
 			    <label for="tema" class="col-sm-2 col-form-label">ID:</label>
-			    <div class="col-sm-10">			    
-					  		 <span class="form-control-plaintext " th:text=${transferAficiones.id}></span>		
-			     
+			    <div class="col-sm-10">
+			      <input type="text" th:field="*{id}" th:value=${transferAficiones.id} class="form-control" id="id" placeholder="id"></input>
 			    </div>
 			</div>
+			
 			 <div class="form-group row">
 			    <label for="tema" class="col-sm-2 col-form-label">Tema:</label>
-			    <div class="col-sm-10">			    
-					  		 <span class="form-control-plaintext " th:text=${transferAficiones.tema}></span>		
-			     
+			    <div class="col-sm-10">
+			      <input type="text" th:field="*{tema}" th:value=${transferAficiones.tema} class="form-control" id="tema" placeholder="Tema"></input>
 			    </div>
 			</div>
 			
 			<div class="form-group row">
 			    <label for="apodo" class="col-sm-2 col-form-label">Apodo:</label>
 			    <div class="col-sm-10">
-			     <span class="form-control-plaintext " th:text=${transferAficiones.apodo}></span>
-			    
+			      <input type="text"  th:field="*{apodo}" th:value=${transferAficiones.apodo} class="form-control" id="apodo" placeholder="Apodo"></input>
 			    </div>
 			</div>
 			
 			<div class="form-group row">
 			    <label for="nombre" class="col-sm-2 col-form-label">Nombre:</label>
 			    <div class="col-sm-10">
-			      <span class="form-control-plaintext " th:text=${transferAficiones.nombre}></span>
+			      <input type="text"  th:field="*{nombre}" th:value=${transferAficiones.nombre} class="form-control" id="nombre" placeholder="Nombre"></input>
 			    </div>
 			</div>
 			
 			<div class="form-group row">
 			    <label for="puntuacion" class="col-sm-2 col-form-label">Puntuacion:</label>
 			    <div class="col-sm-10">
-			      <span class="form-control-plaintext " th:text=${transferAficiones.puntuacion}></span>
+			      <input type="text"  th:field="*{puntuacion}" th:value=${transferAficiones.puntuacion} class="form-control" id="puntuacion" placeholder="Puntuacion"></input>
 			    </div>
 			</div>	
 				
 			<div class="form-group row">
 			    <label for="precio" class="col-sm-2 col-form-label">Precio:</label>
 			    <div class="col-sm-10">
-			      <span class="form-control-plaintext " th:text=${transferAficiones.precio}></span>
+			      <input type="text"  th:field="*{precio}" th:value=${transferAficiones.precio} class="form-control" id="precio" placeholder="Precio"></input>
 			    </div>
 			</div>
 				
@@ -80,7 +77,7 @@
 			
 		
 			
-		
+		</form>
 	</div>	
   </div>	 
 </body>

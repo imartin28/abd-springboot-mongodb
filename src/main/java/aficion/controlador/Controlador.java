@@ -105,20 +105,21 @@ private SaAficiones saAficion ;
 		aficiones.setPrecio(transferAficiones.getPrecio());
 		saAficion.insertarAficion(transferAficiones);
 		modelAndView.addObject("transferAficiones", transferAficiones);
-		modelAndView = new ModelAndView("redirect:/verCambio");
+		modelAndView.setViewName("index");
+		//modelAndView = new ModelAndView("redirect:/index");
 		return modelAndView;		
 	}
 	
 	
 
-	@RequestMapping(value="/verCambio",method=RequestMethod.GET)
-	public ModelAndView verCambio(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+	@RequestMapping(value="/verCambio",method=RequestMethod.GET, params = {"id"})
+	public ModelAndView verCambio(@RequestParam("id") String id) {
 		ModelAndView modelAndView = new ModelAndView();
 		//Aficiones aficiones = saAficion.getById(transferAficiones.getId());
-		TransferAficiones tAficiones = new TransferAficiones(transferAficiones.getId(), transferAficiones.getTema(), transferAficiones.getApodo(), transferAficiones.getNombre(), transferAficiones.getPuntuacion(), transferAficiones.getPrecio());
+		//TransferAficiones tAficiones = new TransferAficiones(transferAficiones.getId(), transferAficiones.getTema(), transferAficiones.getApodo(), transferAficiones.getNombre(), transferAficiones.getPuntuacion(), transferAficiones.getPrecio());
 		
-		modelAndView.addObject("transferAficiones", tAficiones);
-		modelAndView.setViewName("verOferta");
+	//	modelAndView.addObject("transferAficiones", tAficiones);
+		
 	
 		//modelAndView.addObject("transferAficiones", TransferAficiones.EntityToTransfer(aficiones));
 		modelAndView.setViewName("verDetallesAficion");
@@ -136,6 +137,26 @@ private SaAficiones saAficion ;
 	}
 	
 	
+	/*@RequestMapping(value="/mostrarTodos", method=RequestMethod.GET)
+	public ModelAndView mostrarTodos(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		
+		modelAndView.addObject("listaAficiones", saAficion.buscarTodosLosTemas(transferAficiones.getId()));
+		//modelAndView.addObject("listaAficiones", saAficion.buscarTodosLosTemas());
+		//modelAndView = new ModelAndView("redirect:/mostrarTodos");
+		modelAndView.setViewName("mostrarBusqueda");
+		return modelAndView;
+	}*/
 	
-
+	/*@RequestMapping(value="/mostrarTodos",method=RequestMethod.POST)
+	public ModelAndView mostrarTodasAficiones(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+		ModelAndView modelAndView = new ModelAndView();
+		List<Aficiones> listaAficiones =saAficion.buscarTodosLosTemas();		
+		modelAndView.addObject("listaAficionesTema", listaAficiones);
+		modelAndView.setViewName("mostrarBusqueda");		
+		return modelAndView;
+	}
+*/
 }
