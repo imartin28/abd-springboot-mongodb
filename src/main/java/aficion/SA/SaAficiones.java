@@ -3,9 +3,7 @@ package aficion.SA;
 
 
 import java.util.List;
-import java.util.Optional;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,9 +32,6 @@ public class SaAficiones {
 		repository.deleteById(id);
 	}
 
-	/*public  Aficiones buscarPorApodo(String apodo){
-		return (Aficiones) repository.findByApodo(apodo);
-	}*/
 	public Aficiones buscarPorId(String id) {
 		
 		// TODO Auto-generated method stub

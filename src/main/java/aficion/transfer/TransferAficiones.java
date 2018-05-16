@@ -16,7 +16,7 @@ public class TransferAficiones {
 	private double precio;
 	
 	
-	
+	public TransferAficiones() {}
 	
 	public TransferAficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio) {
 		this.id = id;

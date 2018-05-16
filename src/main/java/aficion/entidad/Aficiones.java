@@ -61,9 +61,9 @@ public class Aficiones {
 	}
 	
 	
-	/*public static Aficiones TransferToEntity(TransferAficiones transferAficiones) {
+	public static Aficiones TransferToEntity(TransferAficiones transferAficiones) {
 		return new Aficiones(
-				
+				transferAficiones.getId(),
 				transferAficiones.getTema(),
 				transferAficiones.getApodo(),
 				transferAficiones.getNombre(),
@@ -71,7 +71,7 @@ public class Aficiones {
 				transferAficiones.getPrecio()
 				);
 				
-}*/
+}
 	
 	public String getId() {
 		return id;
