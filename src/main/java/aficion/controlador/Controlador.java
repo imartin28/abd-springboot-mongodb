@@ -17,10 +17,6 @@ import aficion.transfer.TransferAficiones;
 
 
 
-
-
-
-
 @SpringBootApplication
 @Controller
 public class Controlador  {
@@ -30,7 +26,7 @@ public class Controlador  {
 private SaAficiones saAficion ;
 
 	
-	
+	//******************************** INDEX ********************************//
 	
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public ModelAndView mostrarIndex() {
@@ -39,6 +35,9 @@ private SaAficiones saAficion ;
 	return modelAndView;
 	}
 	
+	
+	
+	//******************************** INSERTAR ******************************** //
 	
 	@RequestMapping(value="/insertar", method=RequestMethod.GET)
 	public ModelAndView mostrarInsertar() {
@@ -58,11 +57,11 @@ private SaAficiones saAficion ;
 	}
 	
 	
+	//******************************** BUSCAR TEMA ******************************** //
 	
 
 	@RequestMapping(value="/buscarTema", method=RequestMethod.GET)
-	public ModelAndView mostrarBuscarTema() {
-		
+	public ModelAndView mostrarBuscarTema() {		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("transferAficiones", new Aficiones());
 		modelAndView.setViewName("buscar");
@@ -78,7 +77,10 @@ private SaAficiones saAficion ;
 		modelAndView.setViewName("mostrarBusqueda");		
 		return modelAndView;
 	}
+	
+	
 
+	//******************************** MODIFICAR ******************************** //
 	
 	@RequestMapping(value="/modificar",method=RequestMethod.GET, params = {"id"})
 	public ModelAndView prueba(@RequestParam("id") String id) {
@@ -90,7 +92,6 @@ private SaAficiones saAficion ;
 		modelAndView.setViewName("modificar");
 		return modelAndView;		
 	}
-	
 	
 	
 	@RequestMapping(value="/modificar",method=RequestMethod.POST)
@@ -105,27 +106,26 @@ private SaAficiones saAficion ;
 		aficiones.setPrecio(transferAficiones.getPrecio());
 		saAficion.insertarAficion(transferAficiones);
 		modelAndView.addObject("transferAficiones", transferAficiones);
-		modelAndView.setViewName("index");
-		//modelAndView = new ModelAndView("redirect:/index");
+		modelAndView = new ModelAndView("redirect:/verCambio?id=" + transferAficiones.getId());
+		
 		return modelAndView;		
 	}
 	
+	//******************************** VER CAMBIOS ******************************** //
 	
 
 	@RequestMapping(value="/verCambio",method=RequestMethod.GET, params = {"id"})
 	public ModelAndView verCambio(@RequestParam("id") String id) {
 		ModelAndView modelAndView = new ModelAndView();
-		//Aficiones aficiones = saAficion.getById(transferAficiones.getId());
-		//TransferAficiones tAficiones = new TransferAficiones(transferAficiones.getId(), transferAficiones.getTema(), transferAficiones.getApodo(), transferAficiones.getNombre(), transferAficiones.getPuntuacion(), transferAficiones.getPrecio());
-		
-	//	modelAndView.addObject("transferAficiones", tAficiones);
-		
-	
-		//modelAndView.addObject("transferAficiones", TransferAficiones.EntityToTransfer(aficiones));
+		Aficiones aficiones = saAficion.getById(id);
+		modelAndView.addObject("transferAficiones", aficiones);
 		modelAndView.setViewName("verDetallesAficion");
 		return modelAndView;		
 	}
 
+	
+	
+	//******************************** ELIMINAR******************************** //
 	
 	
 	@RequestMapping(value="/eliminar",method=RequestMethod.GET, params = {"id"})
@@ -135,6 +135,9 @@ private SaAficiones saAficion ;
 		modelAndView.setViewName("index");
 		return modelAndView;		
 	}
+	
+	
+	//******************************** MOSTRAR TODOS ******************************** //
 	
 	
 	@RequestMapping(value="/mostrarTodos", method=RequestMethod.GET)
@@ -148,13 +151,19 @@ private SaAficiones saAficion ;
 		return modelAndView;
 	}
 	
-	/*@RequestMapping(value="/mostrarTodos",method=RequestMethod.POST)
-	public ModelAndView mostrarTodasAficiones(@ModelAttribute("transferAficiones") @Valid Aficiones transferAficiones) {
+	
+	//******************************** QUERY ESPECIAL ******************************** //
+	
+	@RequestMapping(value="/queryEspecial", method=RequestMethod.GET)
+	public ModelAndView query() {
+		
 		ModelAndView modelAndView = new ModelAndView();
-		List<Aficiones> listaAficiones =saAficion.buscarTodosLosTemas();		
-		modelAndView.addObject("listaAficionesTema", listaAficiones);
-		modelAndView.setViewName("mostrarBusqueda");		
+		/*List<Aficiones> aficiones = 
+		modelAndView.addObject("listaAficionesTema", aficiones);
+		
+		modelAndView.setViewName("mostrarBusqueda");*/
 		return modelAndView;
 	}
-*/
+	
+	
 }
