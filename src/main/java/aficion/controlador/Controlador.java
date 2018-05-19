@@ -155,9 +155,12 @@ private SaAficiones saAficion ;
 	//******************************** QUERY ESPECIAL ******************************** //
 	
 	@RequestMapping(value="/queryEspecial", method=RequestMethod.GET)
-	public ModelAndView query() {
+	public ModelAndView query() throws Exception {
 		
 		ModelAndView modelAndView = new ModelAndView();
+		List	<Aficiones> aficiones = saAficion.query();
+		modelAndView.addObject("listaAficionesTema", aficiones);
+		modelAndView.setViewName("mostrarBusqueda");
 		/*List<Aficiones> aficiones = 
 		modelAndView.addObject("listaAficionesTema", aficiones);
 		

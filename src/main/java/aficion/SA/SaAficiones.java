@@ -9,6 +9,7 @@ import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
@@ -63,15 +64,24 @@ public class SaAficiones {
 	
 	public MongoDbFactory mongoDbFactory() throws Exception {
         MongoClient mongoClient = new MongoClient("localhost", 27017);
-     
-        return new SimpleMongoDbFactory(mongoClient, "Aficiones");
+         
+        return new SimpleMongoDbFactory(mongoClient, "pracmongo");
     }
 	
-	public void query() throws Exception {
+	public List<Aficiones> query() throws Exception {
 		Query query = new Query();
-		query.addCriteria(Criteria.where("precio").gt(10));
+		//query.addCriteria(Criteria.where("id").is("5afb1ec9bcd9ec046a579b29"));
+		query.addCriteria(Criteria.where("precio").gte(10));
+		//query.with(new Sort(Sort.Direction.DESC, "precio"));
 		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
-		List<User> users = mongoTemplate.find(query, User.class);
+		List<Aficiones> aficionesTest = mongoTemplate.find(query, Aficiones.class);
+		
+		/*query = query.addCriteria(Criteria.where("precio").gt(10));
+		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
+		System.out.println(query.toString());
+	
+		List<Aficiones> aficiones = (List<Aficiones>) mongoTemplate.findOne(query, Aficiones.class);*/
+		return aficionesTest;
 	}
 	
 
