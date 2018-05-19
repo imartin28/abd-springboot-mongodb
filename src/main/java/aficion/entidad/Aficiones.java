@@ -1,6 +1,9 @@
 package aficion.entidad;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import aficion.transfer.TransferAficiones;
 
@@ -8,6 +11,7 @@ public class Aficiones {
 	
 	@Id
 	private String id;
+	@Indexed
 	private String tema;
 	private String apodo;
 	private String nombre;

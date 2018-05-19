@@ -39,8 +39,11 @@ public class SaAficiones {
 	
 	
 	public List<Aficiones> buscarTodosLosTemas(){
-		List<Aficiones> aficiones = new ArrayList<>();
-        repository.findAll().forEach(aficiones::add);
+		//List<Aficiones> aficiones = new ArrayList<>();
+       // repository.findAll().forEach(aficiones::add);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("precio").gte(10));
+        List<Aficiones> aficiones = repository.findAll(query, Aficiones.class, "aficiones");
 		return aficiones;
 	}
 	
