@@ -158,7 +158,7 @@ private SaAficiones saAficion ;
 	public ModelAndView query() throws Exception {
 		
 		ModelAndView modelAndView = new ModelAndView();
-		List	<Aficiones> aficiones = saAficion.query();
+		List<Aficiones> aficiones = saAficion.query();
 		modelAndView.addObject("listaAficionesTema", aficiones);
 		modelAndView.setViewName("mostrarBusqueda");
 		/*List<Aficiones> aficiones = 

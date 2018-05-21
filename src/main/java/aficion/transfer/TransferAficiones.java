@@ -9,31 +9,31 @@ import aficion.entidad.Aficiones;
 public class TransferAficiones {
 	@Id
 	private String id;
-	private String tema;
-	private String apodo;
-	private String nombre;
-	private int puntuacion;
-	private double precio;
+	private String Tema;
+	private String Apodo;
+	private String Nombre;
+	private int Puntuacion;
+	private double Precio;
 	
 	
 	public TransferAficiones() {}
 	
 	public TransferAficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio) {
 		this.id = id;
-		this.tema = tema;
-		this.apodo = apodo;
-		this.nombre = nombre;
-		this.puntuacion = puntuacion;
-		this.precio = precio;
+		this.Tema = tema;
+		this.Apodo = apodo;
+		this.Nombre = nombre;
+		this.Puntuacion = puntuacion;
+		this.Precio = precio;
 	}
 	
 	public TransferAficiones( String tema, String apodo, String nombre, int puntuacion, double precio) {
 		
-		this.tema = tema;
-		this.apodo = apodo;
-		this.nombre = nombre;
-		this.puntuacion = puntuacion;
-		this.precio = precio;
+		this.Tema = tema;
+		this.Apodo = apodo;
+		this.Nombre = nombre;
+		this.Puntuacion = puntuacion;
+		this.Precio = precio;
 	}
 
 	public static TransferAficiones EntityToTransfer(Aficiones aficiones) {
@@ -58,43 +58,43 @@ public class TransferAficiones {
 	}
 
 	public String getTema() {
-		return tema;
+		return Tema;
 	}
 
 	public void setTema(String tema) {
-		this.tema = tema;
+		this.Tema = tema;
 	}
 
 	public String getApodo() {
-		return apodo;
+		return Apodo;
 	}
 
 	public void setApodo(String apodo) {
-		this.apodo = apodo;
+		this.Apodo = apodo;
 	}
 
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.Nombre = nombre;
 	}
 
 	public int getPuntuacion() {
-		return puntuacion;
+		return Puntuacion;
 	}
 
 	public void setPuntuacion(int puntuacion) {
-		this.puntuacion = puntuacion;
+		this.Puntuacion = puntuacion;
 	}
 
 	public double getPrecio() {
-		return precio;
+		return Precio;
 	}
 
 	public void setPrecio(double precio) {
-		this.precio = precio;
+		this.Precio = precio;
 	}
 
 	

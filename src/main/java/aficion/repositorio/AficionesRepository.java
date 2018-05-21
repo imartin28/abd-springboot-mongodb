@@ -2,7 +2,7 @@ package aficion.repositorio;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.query.Query;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 

@@ -5,11 +5,9 @@ package aficion.SA;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
@@ -74,7 +72,7 @@ public class SaAficiones {
 	public List<Aficiones> query() throws Exception {
 		Query query = new Query();
 		//query.addCriteria(Criteria.where("id").is("5afb1ec9bcd9ec046a579b29"));
-		query.addCriteria(Criteria.where("precio").gte(10));
+		query.addCriteria(Criteria.where("Precio").gte(10));
 		//query.with(new Sort(Sort.Direction.DESC, "precio"));
 		MongoTemplate mongoTemplate = new MongoTemplate(mongoDbFactory());
 		List<Aficiones> aficionesTest = mongoTemplate.find(query, Aficiones.class);

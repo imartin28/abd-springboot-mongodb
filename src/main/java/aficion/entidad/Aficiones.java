@@ -2,10 +2,9 @@ package aficion.entidad;
 
 
 
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import aficion.transfer.TransferAficiones;
 
@@ -14,11 +13,11 @@ public class Aficiones {
 	@Id
 	private String id;
 	@Indexed
-	private String tema;
-	private String apodo;
-	private String nombre;
-	private int puntuacion;
-	private double precio;
+	private String Tema;
+	private String Apodo;
+	private String Nombre;
+	private int Puntuacion;
+	private double Precio;
 	
 	
 	
@@ -27,11 +26,11 @@ public class Aficiones {
 	
 	public Aficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio){
 		this.id = id;
-		this.tema = tema;
-		this.apodo = apodo;
-		this.nombre = nombre;
-		this.puntuacion = puntuacion;
-		this.precio = precio;
+		this.Tema = tema;
+		this.Apodo = apodo;
+		this.Nombre = nombre;
+		this.Puntuacion = puntuacion;
+		this.Precio = precio;
 		
 	}
 	
@@ -46,11 +45,11 @@ public class Aficiones {
 	}*/
 	public Aficiones(Aficiones aficiones) {
 		this.id  = aficiones.id;
-		this.tema = aficiones.tema;
-		this.apodo = aficiones.apodo;
-		this.nombre = aficiones.nombre;
-		this.puntuacion = aficiones.puntuacion;
-		this.precio = aficiones.precio;
+		this.Tema = aficiones.Tema;
+		this.Apodo = aficiones.Apodo;
+		this.Nombre = aficiones.Nombre;
+		this.Puntuacion = aficiones.Puntuacion;
+		this.Precio = aficiones.Precio;
 	}
 	
 	
@@ -90,57 +89,57 @@ public class Aficiones {
 
 
 	public String getTema() {
-		return tema;
+		return Tema;
 	}
 
 
 	public void setTema(String tema) {
-		this.tema = tema;
+		this.Tema = tema;
 	}
 
 
 	public String getApodo() {
-		return apodo;
+		return Apodo;
 	}
 
 
 	public void setApodo(String apodo) {
-		this.apodo = apodo;
+		this.Apodo = apodo;
 	}
 
 
 	public String getNombre() {
-		return nombre;
+		return Nombre;
 	}
 
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.Nombre = nombre;
 	}
 
 
 	public int getPuntuacion() {
-		return puntuacion;
+		return Puntuacion;
 	}
 
 
 	public void setPuntuacion(int puntuacion) {
-		this.puntuacion = puntuacion;
+		this.Puntuacion = puntuacion;
 	}
 
 
 	public double getPrecio() {
-		return precio;
+		return Precio;
 	}
 
 
 	public void setPrecio(double precio) {
-		this.precio = precio;
+		this.Precio = precio;
 	}
 
 	@Override
 	public String toString() {
-		return "Tema: " + this.getTema() + " / Apodo: " + this.getApodo() + " / Nombre: " + this.nombre + " / Puntuación: " + this.puntuacion + " / Precio: " + this.precio;
+		return "Tema: " + this.getTema() + " / Apodo: " + this.getApodo() + " / Nombre: " + this.Nombre + " / Puntuación: " + this.Puntuacion + " / Precio: " + this.Precio;
 	}
 	
 }
