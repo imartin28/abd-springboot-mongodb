@@ -1,5 +1,7 @@
 package aficion.entidad;
 
+
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
