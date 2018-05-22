@@ -9,7 +9,7 @@ import aficion.entidad.Aficiones;
 public class TransferAficiones {
 	@Id
 	private String id;
-	private String Tema;
+	private String tema;
 	private String Apodo;
 	private String Nombre;
 	private int Puntuacion;
@@ -20,7 +20,7 @@ public class TransferAficiones {
 	
 	public TransferAficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio) {
 		this.id = id;
-		this.Tema = tema;
+		this.tema = tema;
 		this.Apodo = apodo;
 		this.Nombre = nombre;
 		this.Puntuacion = puntuacion;
@@ -29,7 +29,7 @@ public class TransferAficiones {
 	
 	public TransferAficiones( String tema, String apodo, String nombre, int puntuacion, double precio) {
 		
-		this.Tema = tema;
+		this.tema = tema;
 		this.Apodo = apodo;
 		this.Nombre = nombre;
 		this.Puntuacion = puntuacion;
@@ -58,11 +58,11 @@ public class TransferAficiones {
 	}
 
 	public String getTema() {
-		return Tema;
+		return tema;
 	}
 
 	public void setTema(String tema) {
-		this.Tema = tema;
+		this.tema = tema;
 	}
 
 	public String getApodo() {

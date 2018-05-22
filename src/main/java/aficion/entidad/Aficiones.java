@@ -13,7 +13,7 @@ public class Aficiones {
 	@Id
 	private String id;
 	@Indexed
-	private String Tema;
+	private String tema;
 	private String Apodo;
 	private String Nombre;
 	private int Puntuacion;
@@ -26,7 +26,7 @@ public class Aficiones {
 	
 	public Aficiones(String id, String tema, String apodo, String nombre, int puntuacion, double precio){
 		this.id = id;
-		this.Tema = tema;
+		this.tema = tema;
 		this.Apodo = apodo;
 		this.Nombre = nombre;
 		this.Puntuacion = puntuacion;
@@ -45,7 +45,7 @@ public class Aficiones {
 	}*/
 	public Aficiones(Aficiones aficiones) {
 		this.id  = aficiones.id;
-		this.Tema = aficiones.Tema;
+		this.tema = aficiones.tema;
 		this.Apodo = aficiones.Apodo;
 		this.Nombre = aficiones.Nombre;
 		this.Puntuacion = aficiones.Puntuacion;
@@ -89,12 +89,12 @@ public class Aficiones {
 
 
 	public String getTema() {
-		return Tema;
+		return tema;
 	}
 
 
 	public void setTema(String tema) {
-		this.Tema = tema;
+		this.tema = tema;
 	}
 
 
